@@ -20,7 +20,7 @@ const app = express();
 // [START hello_world]
 // Say hello!
 app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!');
+  res.status(200).sendFile('vision-jquery-req.html');
 });
 // [END hello_world]
 

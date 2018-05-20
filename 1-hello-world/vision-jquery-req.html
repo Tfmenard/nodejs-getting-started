@@ -1,0 +1,27 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.js"></script>
+<script type="text/javascript">
+
+var p = {"requests":[{  "image":{    "source":{"imageUri":"https://cloud.google.com/vision/docs/images/car.png"}}  ,  "features": [{"type":"LABEL_DETECTION","maxResults":3}]    } ]};
+
+$.ajax({
+type: "POST",
+url: "https://vision.googleapis.com/v1/images:annotate?key=APIKEY",
+data: JSON.stringify(p),
+
+headers: {
+  "Content-Type": "application/json",
+},
+
+dataType: "json",   
+success: function(data, textStatus, jqXHR) {
+  alert(data);
+}
+
+});
+
+</script>
+</head>
+</html>
