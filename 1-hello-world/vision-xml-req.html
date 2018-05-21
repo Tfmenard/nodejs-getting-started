@@ -1,7 +1,6 @@
 <html>
 <head>
 
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.js"></script>
 <script type="text/javascript">
 
@@ -18,13 +17,15 @@ var json_requests=JSON.stringify
 		]
 	}
 );
+
+<!-- Create XMLHttpRequest Object -->
 var req=new XMLHttpRequest;
+
+<!-- Sent Post request to Google Cloud Vision API Server using API Key -->
+req.open("POST","https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDtlskW6b9Nr60lq3f5k0jxCfnDBjvaPDM",!0);
 
 <!-- Print JSON Response in Console -->
 req.onload=function(){console.log(req.responseText)};
-
-<!-- Post to Google Cloud Vision API Server using API Key -->
-req.open("POST","https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDtlskW6b9Nr60lq3f5k0jxCfnDBjvaPDM",!0);
 
 <!-- Send JSON Requests -->
 req.send(json_requests);
