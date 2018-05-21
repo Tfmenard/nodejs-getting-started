@@ -1,14 +1,34 @@
 <html>
 <head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.js"></script>
 <script type="text/javascript">
-var b=JSON.stringify({"requests":[{  "image":{    "source":{"imageUri":"https://cloud.google.com/vision/docs/images/car.png"}}  ,  "features": [{"type":"LABEL_DETECTION","maxResults":5}]    } ]});
-var e=new XMLHttpRequest;
 
-e.onload=function(){console.log(e.responseText)};
-e.open("POST","https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDtlskW6b9Nr60lq3f5k0jxCfnDBjvaPDM",!0);
-e.send(b)
+<!-- Build JSON Request -->
+var json_requests=JSON.stringify
+(
+	{"requests":
+		[
+			{  
+				"image":{    "source":{"imageUri":"https://cloud.google.com/vision/docs/images/car.png"}},
+				
+				"features": [{"type":"LABEL_DETECTION","maxResults":5}]    
+			} 
+		]
+	}
+);
+var req=new XMLHttpRequest;
+
+<!-- Print JSON Response in Console -->
+req.onload=function(){console.log(req.responseText)};
+
+<!-- Post to Google Cloud Vision API Server using API Key -->
+req.open("POST","https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDtlskW6b9Nr60lq3f5k0jxCfnDBjvaPDM",!0);
+
+<!-- Send JSON Requests -->
+req.send(json_requests);
 </script>
+
 </head>
 </html>
