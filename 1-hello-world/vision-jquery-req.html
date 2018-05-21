@@ -10,7 +10,7 @@ var p = {"requests":[{  "image":{    "source":{"imageUri":"https://cloud.google.
 
 $.ajax({
 type: "POST",
-url: "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDtlskW6b9Nr60lq3f5k0jxCfnDBjvaPDM",
+url: "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDtlskW6b9Nr60lq3f5k0jxCfnDBjvaPDMAL",
 data: JSON.stringify(p),
 
 headers: {
@@ -19,7 +19,8 @@ headers: {
 
 dataType: "json",   
 success: function(data, textStatus, jqXHR) {
-  alert(data);
+	console.log("Callback");
+  console.log(data);
 }
 
 });
